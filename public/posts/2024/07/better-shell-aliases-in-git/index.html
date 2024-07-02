@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Better shell aliases in git | mattmc3.github.io</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Better shell aliases in git: adding an external shell script 10 years ago, I read this blog post on GitHub Flow git aliases by Phil Haack. From it, I learned a few really clever tricks. Even though I never much cared for using &lsquo;GitHub Flow&rsquo; as a git workflow, I used some of those tricks for my own git aliases. One of those being this basic pattern:
+[alias] foo = &#34;!">
+    <meta name="generator" content="Hugo 0.128.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/2024/07/better-shell-aliases-in-git/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/2024/07/better-shell-aliases-in-git/">
+  <meta property="og:site_name" content="mattmc3.github.io">
+  <meta property="og:title" content="Better shell aliases in git">
+  <meta property="og:description" content="Better shell aliases in git: adding an external shell script 10 years ago, I read this blog post on GitHub Flow git aliases by Phil Haack. From it, I learned a few really clever tricks. Even though I never much cared for using ‘GitHub Flow’ as a git workflow, I used some of those tricks for my own git aliases. One of those being this basic pattern:
+[alias] foo = &#34;!">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-01T05:29:58-04:00">
+    <meta property="article:modified_time" content="2024-07-01T05:29:58-04:00">
+
+  <meta itemprop="name" content="Better shell aliases in git">
+  <meta itemprop="description" content="Better shell aliases in git: adding an external shell script 10 years ago, I read this blog post on GitHub Flow git aliases by Phil Haack. From it, I learned a few really clever tricks. Even though I never much cared for using ‘GitHub Flow’ as a git workflow, I used some of those tricks for my own git aliases. One of those being this basic pattern:
+[alias] foo = &#34;!">
+  <meta itemprop="datePublished" content="2024-07-01T05:29:58-04:00">
+  <meta itemprop="dateModified" content="2024-07-01T05:29:58-04:00">
+  <meta itemprop="wordCount" content="1262">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Better shell aliases in git">
+  <meta name="twitter:description" content="Better shell aliases in git: adding an external shell script 10 years ago, I read this blog post on GitHub Flow git aliases by Phil Haack. From it, I learned a few really clever tricks. Even though I never much cared for using ‘GitHub Flow’ as a git workflow, I used some of those tricks for my own git aliases. One of those being this basic pattern:
+[alias] foo = &#34;!">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        mattmc3.github.io
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Better shell aliases in git</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-07-01T05:29:58-04:00">July 1, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="better-shell-aliases-in-git-adding-an-external-shell-script">Better shell aliases in git: adding an external shell script</h1>
+<p>10 years ago, I read <a href="https://haacked.com/archive/2014/07/28/github-flow-aliases/">this blog post on GitHub Flow git aliases</a> by Phil Haack. From it, I learned a few really clever tricks. Even though I never much cared for using &lsquo;GitHub Flow&rsquo; as a git workflow, I used some of those tricks for my own git aliases. One of those being this basic pattern:</p>
+<pre tabindex="0"><code>[alias]
+  foo = &#34;!f() { echo foobar; }; f&#34;
+</code></pre><p>This lovely little mess of an alias embeds a one-line shell function tersely named &ldquo;<code>f</code>&rdquo; directly into a git command. <a href="https://git-scm.com/docs/git-config">From the git manual</a>: &ldquo;if the alias is prefixed with an exclamation point, it will be treated as a shell command&rdquo;. <a href="https://www.atlassian.com/blog/git/advanced-git-aliases">Other sources around the same time</a> also began promoting that same trick.</p>
+<p>That trick opens the door to let you create clever aliases like <a href="https://haacked.com/archive/2017/01/04/git-alias-open-url"><code>git browse</code></a>, which navigates to the remote URL of your repo in a web browser. The one Phil published is very Windows/Git Bash specific, and it doesn&rsquo;t work for repos cloned with the <code>git@github.com:my/repo</code> form, so I modified it in my config to become:</p>
+<pre tabindex="0"><code>[alias]
+  browse = &#34;!f() { REPO_URL=$(git config remote.origin.url | sed -e &#39;s#^.*@#https://#&#39; -e &#39;s#.git$##&#39; -e &#39;s#:#/#2&#39;); git web--browse $REPO_URL; }; f&#34;
+</code></pre><p>And now I have this lovely little mess of an alias. Notice that long horizontal scroll? Yeah&hellip; that one-liner is about 150 characters long and pretty ugly looking. But it works, so I kept it and moved on. For 10 years I popped useful aliases in and out of my gitconfig, many with this inline shell pattern.</p>
+<p>Recently, I stumbled upon an <a href="https://github.com/ohmyzsh/ohmyzsh">Oh-My-Zsh</a> plugin called <a href="https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git-commit/git-commit.plugin.zsh">git-commit</a> which takes this pattern to a new extreme. It stores the function in a string, and then generates 12 little alias monsters like this:</p>
+<pre tabindex="0"><code>[alias]
+  build = &#34;!a() { if [ \&#34;$1\&#34; = \&#34;-s\&#34; ] || [ \&#34;$1\&#34; = \&#34;--scope\&#34; ]; then local scope=\&#34;$2\&#34;; shift 2; git commit -m \&#34;build(${scope}): ${@}\&#34;; else git commit -m \&#34;build: ${@}\&#34;; fi }; a&#34;
+</code></pre><p>It&rsquo;s really tricky if not impossible to read and understand that. Especially with all the backslash escaping. Now, the authors of <code>git-commit</code> aren&rsquo;t intending for that alias to actually be maintained in its <code>gitconfig</code> form - it&rsquo;s generated from a string in a script. But even so, forget about changing that easily, customizing it to your needs, or testing it without copy/pasting it into something usable. They even added some extra magic to update the aliases when OMZ updates. I started to wonder why they didn&rsquo;t just include an actual script file (let&rsquo;s call it <code>omz_git_commit</code>), and then have the aliases simply call out to that script. If they did that, then most of the craziness goes away, like so:</p>
+<pre tabindex="0"><code>[alias]
+  build = &#34;!omz_git_commit build&#34;
+  chore = &#34;!omz_git_commit chore&#34;
+  ci = &#34;!omz_git_commit ci&#34;
+  docs = &#34;!omz_git_commit docs&#34;
+  feat = &#34;!omz_git_commit feat&#34;
+  fix = &#34;!omz_git_commit fix&#34;
+  perf = &#34;!omz_git_commit perf&#34;
+  refactor = &#34;!omz_git_commit refactor&#34;
+  rev = &#34;!omz_git_commit rev&#34;
+  style = &#34;!omz_git_commit style&#34;
+  test = &#34;!omz_git_commit test&#34;
+  wip = &#34;!omz_git_commit wip&#34;
+</code></pre><p>They also wouldn&rsquo;t need to reach out and touch people&rsquo;s gitconfig every time Oh-My-Zsh has a new commit.</p>
+<h2 id="the-antipattern">The antipattern</h2>
+<p>By now you can probably see where this is going - these kinds of complex git aliases become crazy hard to maintain over time. My <code>gitconfig</code> became a mess of functions I could no longer read or understand. Add to that the abomination of mixing code and configuration in one file, and I feel like <code>!f() { echo foobar; }; f</code> has become a true antipattern. For the occasional one-off, fine. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor. So, what&rsquo;s the better way? Glad you asked.</p>
+<h2 id="my-solution">My solution</h2>
+<p>My solution has been to simply create a shell script external to my gitconfig that my git aliases can call. That script needs to be in the shell&rsquo;s <code>$PATH</code> for git to find it. With this script I can do more complicated actions without feeling like I have to cram everything into one line. And, it&rsquo;s easy to see what&rsquo;s in that script and read all the code. This git extensions script file can be written as a POSIX script, Bash, Zsh, Fish, Oil, Nushell, Xonsh - whatever shell you want. And, you don&rsquo;t have to convert your git aliases wholesale - you can start just with the ones that reach a certain complexity. Though I do find it easier to have all most of git subcommand handlers in one place.</p>
+<h3 id="preparing-to-use-your-script">Preparing to use your script</h3>
+<p>For demo purposes, we&rsquo;ll create a simple POSIX script for our &ldquo;git extensions&rdquo; called <code>gitex</code>. We&rsquo;ll put it in <code>~/bin/gitex</code> and make it executable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir -p ~/bin <span style="color:#f92672">&amp;&amp;</span> touch ~/bin/gitex
+</span></span><span style="display:flex;"><span>chmod u+x ~/bin/gitex
+</span></span></code></pre></div><p>Make sure you have added <code>~/bin</code> to your <code>$PATH</code>. If you don&rsquo;t know how to do that, consult your preferred shell&rsquo;s documentation.</p>
+<h4 id="bash">Bash</h4>
+<p>For Bash, you might need to do something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=&#34;~/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></div><h4 id="zsh">Zsh</h4>
+<p>For Zsh, you could add this to your <code>${ZDOTDIR:-$HOME}/.zshrc</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>path<span style="color:#f92672">+=(</span>~/bin $path<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h4 id="fish">Fish</h4>
+<p>For Fish, you could add this to your <code>config.fish</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span>fish_add_path <span style="color:#a6e22e">--global</span> <span style="color:#a6e22e">--prepend</span> ~/bin
+</span></span></code></pre></div><h3 id="setting-up-your-script">Setting up your script</h3>
+<p>Now that we have our new <code>~/bin/gitex</code> script set up, let&rsquo;s make a simple primary function so we can extend our script with subcommands as we add new git aliases.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">##? gitex - git extensions; make git shell aliases that don&#39;t suck</span>
+</span></span><span style="display:flex;"><span>gitex<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Call the subcommand function if it exists.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> typeset -f <span style="color:#e6db74">&#34;gitex_</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt; /dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    local subcmd<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>    shift
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;gitex_</span><span style="color:#e6db74">${</span>subcmd<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    echo &gt;&amp;<span style="color:#ae81ff">2</span> <span style="color:#e6db74">&#34;gitex: subcommand not found &#39;</span>$1<span style="color:#e6db74">&#39;.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>gitex <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h3 id="extending-your-script">Extending your script</h3>
+<p>You can now add new subcommand functions to your <code>~/bin/gitex</code> script. Let&rsquo;s add our <code>git browse</code> command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">##? browse: Open web browser to git remote URL</span>
+</span></span><span style="display:flex;"><span>gitex_browse<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  local url<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>
+</span></span><span style="display:flex;"><span>    git config remote.<span style="color:#e6db74">${</span>1<span style="color:#66d9ef">:-</span>origin<span style="color:#e6db74">}</span>.url |
+</span></span><span style="display:flex;"><span>      sed -e <span style="color:#e6db74">&#39;s#^.*@#https://#&#39;</span> -e <span style="color:#e6db74">&#39;s#.git$##&#39;</span> -e <span style="color:#e6db74">&#39;s#:#/#2&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  git web--browse $url
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>And now finally, you can add your new <code>gitex</code> aliases to your <code>gitconfig</code>:</p>
+<pre tabindex="0"><code>[alias]
+  browse = &#34;!gitex browse&#34;
+</code></pre><p>Hope this was helpful! For people who&rsquo;ve been shell scripting for awhile, this is probably all old hat. But for folks who have only just begun to dive into this space and have copy/pasted others&rsquo; scripts over time, hopefully this is a helpful next step in your shell scripting journey.</p>
+<h3 id="a-special-note-for-alternative-shell-users">A special note for alternative shell users</h3>
+<p>If you are a <a href="https://fishshell.com/">Fish shell</a> user, it can be especially daunting (or at the least, annoying) to deal in POSIX shell syntax. If you want to write your <code>gitex</code> script in Fish (or another scripting language), you can easily do that by changing the shebang from <code>#!/bin/sh</code> to <code>#!/usr/bin/env fish</code> and then writing your script in that language.</p>
+<p>For Fish users, there&rsquo;s another alternative. You can, in fact, write Fish functions and assign them to git aliases. POSIX is cross-platform and has a lot of advantages, but if you use Fish you probably know those pros/cons all too well. You can weigh whether any of that really matters to you - that&rsquo;s a whole different article. Let&rsquo;s assume that you, for whatever reason, prefer to write your scripts in a &ldquo;sensible language&rdquo; because you want to <a href="https://fishshell.com/">&ldquo;never write esac again&rdquo;</a>.</p>
+<p>It&rsquo;s as simple as defining your Fish functions (<code>gitex_foo</code>, <code>gitex_bar</code>, <code>gitex_baz</code>, etc), and then add this to your <code>gitconfig</code>:</p>
+<pre tabindex="0"><code>[alias]
+  foo = &#34;!fish -P -c &#39;gitex_foo $argv&#39;&#34;
+  bar = &#34;!fish -P -c &#39;gitex_bar $argv&#39;&#34;
+  baz = &#34;!fish -P -c &#39;gitex_baz $argv&#39;&#34;
+</code></pre><h2 id="in-conclusion">In conclusion</h2>
+<p>You can <a href="https://github.com/mattmc3/dotfiles/">check out my dotfiles</a> if you want to see <a href="https://github.com/mattmc3/dotfiles/blob/main/bin/gitex">my <code>gitex</code> implementation</a>. Happy scripting!</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  mattmc3.github.io 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
