@@ -1,5 +1,5 @@
 +++
-title = 'C# Corner - fun with 'yield' and extension methods'
+title = "C# Corner - fun with `yield` and extension methods"
 date = 2010-01-22T10:11:00-05:00
 +++
 
