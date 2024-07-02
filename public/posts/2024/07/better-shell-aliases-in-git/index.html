@@ -51,7 +51,7 @@
 [alias] foo = &#34;!">
   <meta itemprop="datePublished" content="2024-07-01T05:29:58-04:00">
   <meta itemprop="dateModified" content="2024-07-01T05:29:58-04:00">
-  <meta itemprop="wordCount" content="1259">
+  <meta itemprop="wordCount" content="1260">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Better shell aliases in git">
   <meta name="twitter:description" content="Better shell aliases in git: adding an external shell script 10 years ago, I read this blog post on GitHub Flow git aliases by Phil Haack. From it, I learned a few really clever tricks. Even though I never much cared for using ‘GitHub Flow’ as a git workflow, I used some of those tricks for my own git aliases. One of those being this basic pattern:
@@ -156,7 +156,7 @@
   wip = &#34;!omz_git_commit wip&#34;
 </code></pre><p>They also wouldn&rsquo;t need to reach out and touch people&rsquo;s gitconfig every time Oh-My-Zsh has a new commit.</p>
 <h2 id="the-antipattern">The antipattern</h2>
-<p>By now you can probably see where this is going - these kinds of complex git aliases become crazy hard to maintain over time. My <code>gitconfig</code> became a mess of functions I could no longer read or understand. Add to that the abomination of mixing code and configuration in one file, and I feel like &ldquo;<code>!f() { echo foobar; }; f</code>&rdquo; has become a true antipattern. For the occasional one-off, fine. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor. So, what&rsquo;s the better way? Glad you asked.</p>
+<p>By now you can probably see where this is going - these kinds of complex git aliases become crazy hard to maintain over time. My <code>gitconfig</code> became a mess of functions I could no longer read or understand. Add to that the abomination of mixing code and configuration in one file, and I feel like &ldquo;<code>!f() { &lt;complex shell commands&gt;; }; f</code>&rdquo; has become a true antipattern. For the occasional one-off, fine. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor. So, what&rsquo;s the better way? Glad you asked.</p>
 <h2 id="my-solution">My solution</h2>
 <p>My solution has been to simply create a shell script external to my gitconfig that my git aliases can call. That script needs to be in the shell&rsquo;s <code>$PATH</code> for git to find it. With this script I can do more complicated actions without feeling like I have to cram everything into one line. And, it&rsquo;s easy to see what&rsquo;s in that script and read all the code. This script file can be written as a POSIX script, Bash, Zsh, Fish, Oil, Nushell, Xonsh - whatever you want. And, you don&rsquo;t have to convert your git aliases wholesale - you can start just with the ones that reach a certain complexity. Though I do find it easier to have all most of git subcommand handlers in one place.</p>
 <h3 id="preparing-to-use-your-script">Preparing to use your script</h3>
