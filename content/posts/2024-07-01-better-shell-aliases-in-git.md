@@ -58,7 +58,11 @@ By now you can probably see where this is going - these kinds of complex inline 
 
 ## My solution
 
-My solution has been to simply create an external shell script and change my gitconfig to call out to it for shell aliases. That script needs to be in the shell's `$PATH` for git to find it. With this script I can do more complicated actions without feeling like I have to cram everything into one line. And, it's easy to see what's in that script and read all the code. This script file can be written as a POSIX script, Bash, Zsh, Fish, Dash, Oil, Nushell, Xonsh - whatever you want. And, you don't have to convert your git aliases wholesale - you can start just with the ones that reach a certain complexity. Though I do find it easier to have most of my git subcommand handlers in one place.
+There are a couple different solutions here. First, instead of git aliases, you could simply switch to regular shell aliases (or functions). This is a perfectly acceptable option, and there are [already discussions](https://www.reddit.com/r/git/comments/9drimq/aliases_git_or_bash/) you can find on that topic.
+
+However, my solution was to improve my existing git aliases by simply creating an external shell script and changing my gitconfig aliases to call it. That way, I retain my muscle memory, but move the existing code to someplace more appropriate.
+
+That script needs to be in the shell's `$PATH` for git to find it. With this script I can do more complicated actions without feeling like I have to cram everything into one line. And, it's easy to see what's in that script, understand what is being done, and evolve and test all the code. This script file can be written as a POSIX script, Bash, Zsh, Fish, Dash, Oil, Nushell, Xonsh - whatever you want. And, you don't have to convert your git aliases wholesale - you can start just with the ones that reach a certain complexity. Though I do find it easier to have most of my git subcommand handlers in one place.
 
 ### Preparing to use your script
 
