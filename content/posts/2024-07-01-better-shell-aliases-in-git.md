@@ -52,7 +52,7 @@ They also wouldn't need to reach out and touch people's gitconfig every time Oh-
 
 ## The antipattern
 
-By now you can probably see where this is going - these kinds of complex git aliases become crazy hard to maintain over time. My `gitconfig` became a mess of functions I could no longer read or understand. Add to that the abomination of mixing code and configuration in one file, and I feel like "`!f() { echo foobar; }; f`" has become a true antipattern. For the occasional one-off, fine. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor. So, what's the better way? Glad you asked.
+By now you can probably see where this is going - these kinds of complex git aliases become crazy hard to maintain over time. My `gitconfig` became a mess of functions I could no longer read or understand. Add to that the abomination of mixing code and configuration in one file, and I feel like "`!f() { <complex shell commands>; }; f`" has become a true antipattern. For the occasional one-off, fine. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor. So, what's the better way? Glad you asked.
 
 ## My solution
 
