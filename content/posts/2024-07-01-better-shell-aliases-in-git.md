@@ -52,11 +52,11 @@ They also wouldn't need to reach out and touch people's gitconfig every time Oh-
 
 ## The antipattern
 
-By now you can probably see where this is going - these kinds of complex git aliases become crazy hard to maintain over time. My `gitconfig` became a mess of functions I could no longer read or understand. Add to that the abomination of mixing code and configuration in one file, and I feel like `!f() { echo foobar; }; f` has become a true antipattern. For the occasional one-off, fine. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor. So, what's the better way? Glad you asked.
+By now you can probably see where this is going - these kinds of complex git aliases become crazy hard to maintain over time. My `gitconfig` became a mess of functions I could no longer read or understand. Add to that the abomination of mixing code and configuration in one file, and I feel like "`!f() { echo foobar; }; f`" has become a true antipattern. For the occasional one-off, fine. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor. So, what's the better way? Glad you asked.
 
 ## My solution
 
-My solution has been to simply create a shell script external to my gitconfig that my git aliases can call. That script needs to be in the shell's `$PATH` for git to find it. With this script I can do more complicated actions without feeling like I have to cram everything into one line. And, it's easy to see what's in that script and read all the code. This git extensions script file can be written as a POSIX script, Bash, Zsh, Fish, Oil, Nushell, Xonsh - whatever shell you want. And, you don't have to convert your git aliases wholesale - you can start just with the ones that reach a certain complexity. Though I do find it easier to have all most of git subcommand handlers in one place.
+My solution has been to simply create a shell script external to my gitconfig that my git aliases can call. That script needs to be in the shell's `$PATH` for git to find it. With this script I can do more complicated actions without feeling like I have to cram everything into one line. And, it's easy to see what's in that script and read all the code. This script file can be written as a POSIX script, Bash, Zsh, Fish, Oil, Nushell, Xonsh - whatever you want. And, you don't have to convert your git aliases wholesale - you can start just with the ones that reach a certain complexity. Though I do find it easier to have all most of git subcommand handlers in one place.
 
 ### Preparing to use your script
 
