@@ -1,7 +1,6 @@
 +++
 title = 'Embedded Resources'
 date = 2009-06-15T10:00:00-04:00
-draft = true
 +++
 
 ![Embedded Resource](/assets/img/EmbeddedResource.gif)
