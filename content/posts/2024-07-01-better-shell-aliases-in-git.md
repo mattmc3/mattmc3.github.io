@@ -137,7 +137,7 @@ You can now add new subcommand functions to your `~/bin/gitex` script. Let's add
 gitex_browse() {
   local url=$(
     git config remote.${1:-origin}.url |
-      sed -e 's#^.*@#https://#' -e 's#.git$##' -e 's#:#/#2'
+      sed -e 's|^.*@|https://|' -e 's|.git$||' -e 's|:|/|2'
   )
   git web--browse $url
 }
