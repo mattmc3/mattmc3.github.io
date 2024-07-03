@@ -276,7 +276,7 @@ Example:
 ```
 $ git cloner --depth 1 sorin-ionescu/prezto
 clone command modified to:
-  git clone --recurse-submodules --depth 1 git@github.com:sorin-ionescu/prezto.git $HOME/repos/sorin-ionescu/prezto
+  git clone --recurse-submodules --depth 1 git@github.com:sorin-ionescu/prezto.git ~/repos/sorin-ionescu/prezto
 ```
 
 Happy scripting!
