@@ -172,7 +172,7 @@ It's as simple as defining Fish functions (ex: `gitex_foo`, `gitex_bar`, etc), a
 You can [check out my dotfiles](https://github.com/mattmc3/dotfiles/) if you want to see [my `gitex` implementation](https://github.com/mattmc3/dotfiles/blob/main/bin/gitex). It has some helpful extras like supporting kebab-case-aliases, as well as my favorite alias `git cloner`, which enhances `git clone` with some extras:
 
 - It lets you clone using repo short names (ohmyzsh/ohmyzsh)
-- It assumes you want to clone a default location (`~/repos` which is configurable), instead of `$PWD`, unless a destination directory was explicitly provided
+- It assumes you want to clone a default location (`~/repos` which is configurable), instead of `$PWD`, unless you provide a destination directory arg (eg: `.`)
 - It can add flags you might forget, but usually want like `--recurse-submodules`
 
 Example:
