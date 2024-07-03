@@ -58,7 +58,7 @@ By now you can probably see where this is going - these kinds of complex inline 
 
 > _Code should live in a place where it's easy to evaluate, execute, and evolve, not in some config strings where you can't do any of those things_.
 >
-> \- me, having a shower thought
+> \- me, shower thoughts
 
 ## My solution
 
@@ -120,8 +120,9 @@ is_function() {
 # This main function serves to call your custom subcommand
 # functions (eg: 'gitex_foo') in this same gitex file.
 gitex() {
+  local subcmd
   if is_function "$1"; then
-    local subcmd="$1"
+    subcmd="$1"
     shift
     "gitex_${subcmd}" "$@"
   else
@@ -139,10 +140,11 @@ You can now add new subcommand functions to your `~/bin/gitex` script. Let's add
 ```sh
 ##? browse: Open web browser to git remote URL
 gitex_browse() {
-  local url=$(
-    git config remote.${1:-origin}.url |
+  local url
+  url="$(
+    git config "remote.${1:-origin}.url" |
       sed -e 's|^.*@|https://|' -e 's|.git$||' -e 's|:|/|2'
-  )
+  )"
   git web--browse $url
 }
 ```
