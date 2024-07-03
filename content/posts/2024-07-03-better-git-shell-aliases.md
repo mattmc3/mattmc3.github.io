@@ -1,9 +1,9 @@
 +++
-title = 'Better shell aliases in git'
+title = 'Better git shell aliases'
 date = 2024-07-03T09:00:00-04:00
 +++
 
-# Better shell aliases in git: using an external shell script
+# Better git shell aliases: using an external shell script
 
 10 years ago, I read [this blog post on GitHub Flow git aliases](https://haacked.com/archive/2014/07/28/github-flow-aliases/) by Phil Haack. From it, I learned a few really clever tricks. Even though I never much cared for using 'GitHub Flow' as a git workflow, I used some of those tricks for my own git aliases. One of those being this basic pattern:
 
