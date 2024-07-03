@@ -30,7 +30,9 @@ Recently, I stumbled upon an [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh) plu
   build = "!a() { if [ \"$1\" = \"-s\" ] || [ \"$1\" = \"--scope\" ]; then local scope=\"$2\"; shift 2; git commit -m \"build(${scope}): ${@}\"; else git commit -m \"build: ${@}\"; fi }; a"
 ```
 
-It's really tricky (if not nearly impossible) to read and understand that in that form. Especially with all the backslash escaping. Now, the authors of `git-commit` aren't intending for that alias to actually be maintained in its `gitconfig` form - that result is generated from a string in a script. But even so, forget about changing that easily, customizing it to your needs, or testing it without copy/pasting it into something usable. They even added some extra magic to update the aliases when OMZ updates. I started to wonder why they didn't just include an actual script file (let's call it `omz_git_commit`), and then have the aliases simply call out to that script. If they did that, then most of the craziness goes away, like so:
+It's really tricky (if not nearly impossible) to read and understand that. Especially with all the backslash escaping. Now, the authors of `git-commit` aren't intending for that alias to actually be maintained in its `gitconfig` form - that result is generated from a string in a script. But even so, forget about changing that easily, customizing it to your needs, or testing it without copy/pasting it into something usable. They even added some extra magic to update the aliases in your `gitconfig` whenever OMZ updates! Imagine the chaos if that had a bug!
+
+I started to wonder why they didn't just include an actual script file (let's call it `omz_git_commit`), and then have the aliases simply call out to that shell script. If they did that, then most of the craziness goes away, like so:
 
 ```
 [alias]
@@ -48,13 +50,14 @@ It's really tricky (if not nearly impossible) to read and understand that in tha
   wip = "!omz_git_commit wip"
 ```
 
-They also wouldn't need to reach out and touch people's gitconfig every time Oh-My-Zsh has a new commit. As I started to search more, I realized that there's a whole lot of examples of the `foo = "!f() { echo foo; }; f` pattern of git aliases, but no great examples of writing a separate shell script.
+They also wouldn't need to risk modifying people's gitconfigs every time Oh-My-Zsh has a new commit. As I started to search more, I realized that there's a whole lot of examples of the `foo = "!f() { <YOLO!>; }; f` pattern of git aliases, but no great examples of writing a separate shell script.
 
 ## The antipattern
 
-By now you can probably see where this is going - these kinds of complex inline git aliases become crazy hard to maintain over time. My `gitconfig` was a mess of shell scripts I could not easily read or understand. Add to that the problem of mixing code and configuration in one file, and I feel like "`!f() { <complex shell commands>; }; f`" has become a true antipattern. For the occasional one-off, sure. Fine. Do whatever. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor.
+By now you can probably see where this is going - these kinds of complex inline git aliases are an antipattern. My `gitconfig` was a mess of shell scripts I could not easily read or understand. Add to that the problem of mixing code and configuration in one file. For the occasional one-off, sure. Fine. Do whatever. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor.
 
 > _Code should live in a place where it's easy to evaluate, execute, and evolve, not in some config strings where you can't do any of those things_.
+> - me, having a shower thought
 
 ## My solution
 
