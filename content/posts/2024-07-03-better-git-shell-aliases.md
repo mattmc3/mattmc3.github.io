@@ -148,7 +148,7 @@ how to do that, consult your preferred shell's documentation.
 For Bash, you might need to do something like this:
 
 ```bash
-echo 'export PATH="~/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
 ```
 
 #### Zsh
@@ -156,7 +156,7 @@ echo 'export PATH="~/bin:$PATH"' >> ~/.bashrc
 For Zsh, you could add this to your `${ZDOTDIR:-$HOME}/.zshrc`:
 
 ```zsh
-path+=(~/bin $path)
+path=(~/bin $path)
 ```
 
 #### Fish
@@ -212,7 +212,7 @@ gitex_browse() {
     git config "remote.${1:-origin}.url" |
       sed -e 's|^.*@|https://|' -e 's|.git$||' -e 's|:|/|2'
   )"
-  git web--browse $url
+  git web--browse "$url"
 }
 ```
 
