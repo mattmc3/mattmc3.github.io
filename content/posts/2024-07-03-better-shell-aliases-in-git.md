@@ -1,6 +1,6 @@
 +++
 title = 'Better shell aliases in git'
-date = 2024-07-01T05:29:58-04:00
+date = 2024-07-03T09:00:00-04:00
 +++
 
 # Better shell aliases in git: using an external shell script
@@ -169,4 +169,18 @@ It's as simple as defining Fish functions (ex: `gitex_foo`, `gitex_bar`, etc), a
 
 ## In conclusion
 
-You can [check out my dotfiles](https://github.com/mattmc3/dotfiles/) if you want to see [my `gitex` implementation](https://github.com/mattmc3/dotfiles/blob/main/bin/gitex). It has some helpful extras, like supporting kebab-case-aliases. Happy scripting!
+You can [check out my dotfiles](https://github.com/mattmc3/dotfiles/) if you want to see [my `gitex` implementation](https://github.com/mattmc3/dotfiles/blob/main/bin/gitex). It has some helpful extras like supporting kebab-case-aliases, as well as my favorite alias `git cloner`, which enhances `git clone` with some extras:
+
+- It lets you clone using repo short names (ohmyzsh/ohmyzsh)
+- It assumes you want to clone a default location (`~/repos` which is configurable), instead of `$PWD`, unless a destination directory was explicitly provided
+- It can add flags you might forget, but usually want like `--recurse-submodules`
+
+Example:
+
+```
+$ git cloner --depth 1 sorin-ionescu/prezto
+clone command modified to:
+  git clone --recurse-submodules --depth 1 git@github.com:sorin-ionescu/prezto.git $HOME/repos/sorin-ionescu/prezto
+```
+
+Happy scripting!
