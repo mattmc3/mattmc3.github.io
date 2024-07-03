@@ -5,12 +5,11 @@ date = 2024-07-03T09:00:00-04:00
 
 # Better git shell aliases: using an external shell script
 
-10 years ago, I read [this blog post on GitHub Flow git
-aliases](https://haacked.com/archive/2014/07/28/github-flow-aliases/)
-by Phil Haack. From it, I learned a few really clever tricks. Even
-though I never much cared for using 'GitHub Flow' as a git workflow, I
-used some of those tricks for my own git aliases. One of those being
-this basic pattern:
+10 years ago, I read [this blog post][github-flow-aliases] on GitHub
+Flow git aliases by Phil Haack. From it, I learned a few really clever
+tricks. Even though I never much cared for using 'GitHub Flow' as a
+git workflow, I used some of those tricks for my own git aliases. One
+of those being this basic pattern:
 
 ```
 [alias]
@@ -21,20 +20,17 @@ This lovely little mess of an alias embeds a one-line shell function
 tersely named "`f`" directly into a git command. [From the git
 manual](https://git-scm.com/docs/git-config): "if the alias is
 prefixed with an exclamation point, it will be treated as a shell
-command". [Other sources around the same
-time](https://www.atlassian.com/blog/git/advanced-git-aliases) also
-began promoting that same trick. It lets you handle all the other
+command". [Other sources around the same time][advanced-git-aliases]
+also began promoting that same trick. It lets you handle all the other
 arguments passed in, so that typing `git foo bar baz` will print the
 string "foobar: bar baz".
 
 That trick opens the door to let you create all sorts of clever
-aliases like [`git
-browse`](https://haacked.com/archive/2017/01/04/git-alias-open-url),
-which navigates to the remote URL of your repo in a web browser. The
-'browse' git alias Phil published in that link is very Windows/Git
-Bash specific, and it doesn't work for repos cloned with the
-`git@github.com:my/repo` form, so I had to modify it in my config to
-become:
+aliases like [`git browse`][git-alias-open-url], which navigates to
+the remote URL of your repo in a web browser. The 'browse' git alias
+Phil published in that link is very Windows/Git Bash specific, and it
+doesn't work for repos cloned with the `git@github.com:my/repo` form,
+so I had to modify it in my config to become:
 
 ```
 [alias]
@@ -114,9 +110,8 @@ to refactor.
 There are a couple different solutions here. First, instead of git
 aliases, you could simply switch to regular shell aliases (or
 functions). This is a perfectly acceptable option, and there are
-[already
-discussions](https://www.reddit.com/r/git/comments/9drimq/aliases_git_or_bash/)
-you can find on that topic.
+[already discussions][reddit_aliases_git_or_bash] you can find on that
+topic.
 
 However, my solution was to improve my existing git aliases by simply
 creating an external shell script and changing my gitconfig aliases to
@@ -237,12 +232,11 @@ scripting journey.
 
 ### A special note for alternative shell users
 
-If you are a [Fish shell](https://fishshell.com/) user, it can be
-especially daunting (or at the least, annoying) to deal in POSIX shell
-syntax. If you want to write your `gitex` script in Fish (or another
-scripting language), you can easily do that by changing the shebang
-from `#!/bin/sh` to `#!/usr/bin/env fish` and then writing your script
-in that language.
+If you are a [Fish shell][fish] user, it can be especially daunting
+(or at the least, annoying) to deal in POSIX shell syntax. If you want
+to write your `gitex` script in Fish (or another scripting language),
+you can easily do that by changing the shebang from `#!/bin/sh` to
+`#!/usr/bin/env fish` and then writing your script in that language.
 
 For Fish users, there's another alternative. You can, in fact, write
 plain old Fish functions and assign them to git aliases! While POSIX
@@ -251,7 +245,7 @@ probably know all those pros/cons and can weigh whether any of that
 really matters to you - that's a whole different article. Let's assume
 that you, for whatever reason, prefer to write your scripts in a
 "sensible language" because you want to ["never write esac
-again"](https://fishshell.com/).
+again"][fish].
 
 It's as simple as defining Fish functions (ex: `gitex_foo`,
 `gitex_bar`, etc), and then add this to your `gitconfig`:
@@ -265,12 +259,10 @@ It's as simple as defining Fish functions (ex: `gitex_foo`,
 
 ## In conclusion
 
-You can [check out my dotfiles](https://github.com/mattmc3/dotfiles/)
-if you want to see [my `gitex`
-implementation](https://github.com/mattmc3/dotfiles/blob/main/bin/gitex).
-It has some helpful extras like supporting kebab-case-aliases, as well
-as my favorite alias `git cloner`, which enhances `git clone` with
-some extras:
+You can [check out my dotfiles][dotfiles] if you want to see [my
+`gitex` implementation][gitex]. It has some helpful extras like
+supporting kebab-case-aliases, as well as my favorite alias `git
+cloner`, which enhances `git clone` with some extras:
 
 - It lets you clone using repo short names (ohmyzsh/ohmyzsh)
 - It assumes you want to clone a default location (`~/repos` which is
@@ -289,5 +281,12 @@ clone command modified to:
 
 Happy scripting!
 
-[omz]: https://github.com/ohmyzsh/ohmyzsh
+[advanced-git-aliases]: https://www.atlassian.com/blog/git/advanced-git-aliases
+[dotfiles]: https://github.com/mattmc3/dotfiles/
+[fish]: https://fishshell.com/
+[git-alias-open-url]: https://haacked.com/archive/2017/01/04/git-alias-open-url
 [git-commit]: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git-commit/git-commit.plugin.zsh
+[gitex]: https://github.com/mattmc3/dotfiles/blob/main/bin/gitex
+[github-flow-aliases]: https://haacked.com/archive/2014/07/28/github-flow-aliases/
+[omz]: https://github.com/ohmyzsh/ohmyzsh
+[reddit_aliases_git_or_bash]: https://www.reddit.com/r/git/comments/9drimq/aliases_git_or_bash/
