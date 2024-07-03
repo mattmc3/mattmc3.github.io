@@ -57,6 +57,7 @@ They also wouldn't need to risk modifying people's gitconfigs every time Oh-My-Z
 By now you can probably see where this is going - these kinds of complex inline git aliases are an antipattern. My `gitconfig` was a mess of shell scripts I could not easily read or understand. Add to that the problem of mixing code and configuration in one file. For the occasional one-off, sure. Fine. Do whatever. But once I got past a certain number of these aliases at a certain complexity, it was time to refactor.
 
 > _Code should live in a place where it's easy to evaluate, execute, and evolve, not in some config strings where you can't do any of those things_.
+>
 > \- me, having a shower thought
 
 ## My solution
