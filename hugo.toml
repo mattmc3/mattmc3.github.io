@@ -8,3 +8,8 @@ theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
     posts = '/posts/:year/:month/:slug/'
   [permalinks.section]
     posts = '/articles/'
+
+[markup]
+  [markup.highlight]
+    # modus-vivendi, doom-one2, solarized-dark256, dracula, witchhazel, hrdark, github-dark
+    style = 'github-dark'

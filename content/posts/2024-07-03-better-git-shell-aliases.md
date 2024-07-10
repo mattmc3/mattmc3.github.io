@@ -11,7 +11,7 @@ tricks. Even though I never much cared for using 'GitHub Flow' as a
 git workflow, I used some of those tricks for my own git aliases. One
 of those being this basic pattern:
 
-```
+```properties
 [alias]
   foo = "!f() { echo \"foobar: $@\"; }; f"
 ```
@@ -32,7 +32,7 @@ Phil published in that link is very Windows/Git Bash specific, and it
 doesn't work for repos cloned with the `git@github.com:my/repo` form,
 so I had to modify it in my config to become:
 
-```
+```properties
 [alias]
   browse = "!f() { REPO_URL=$(git config remote.origin.url | sed -e 's|^.*@|https://|' -e 's|.git$||' -e 's|:|/|2'); git web--browse $REPO_URL; }; f"
 ```
@@ -48,7 +48,7 @@ Recently, I stumbled upon an [Oh-My-Zsh][omz] plugin called
 stores the function in a string, and then generates 12 little alias
 monsters like this:
 
-```
+```properties
 [alias]
   build = "!a() { if [ \"$1\" = \"-s\" ] || [ \"$1\" = \"--scope\" ]; then local scope=\"$2\"; shift 2; git commit -m \"build(${scope}): ${@}\"; else git commit -m \"build: ${@}\"; fi }; a"
 ```
@@ -67,7 +67,7 @@ I started to wonder why they didn't just include an actual script file
 call out to that shell script. If they did that, then most of the
 craziness goes away, like so:
 
-```
+```properties
 [alias]
   build = "!omz_git_commit build"
   chore = "!omz_git_commit chore"
@@ -219,7 +219,7 @@ gitex_browse() {
 And now finally, you can add your new `gitex` aliases to your
 `gitconfig`:
 
-```
+```properties
 [alias]
   browse = "!gitex browse"
 ```
@@ -250,7 +250,7 @@ again"][fish].
 It's as simple as defining Fish functions (ex: `gitex_foo`,
 `gitex_bar`, etc), and then add this to your `gitconfig`:
 
-```
+```properties
 [alias]
   foo = "!fish -P -c 'gitex_foo $argv'"
   bar = "!fish -P -c 'gitex_bar $argv'"
@@ -273,7 +273,7 @@ cloner`, which enhances `git clone` with some extras:
 
 Example:
 
-```
+```sh
 $ git cloner --depth 1 sorin-ionescu/prezto
 clone command modified to:
   git clone --recurse-submodules --depth 1 git@github.com:sorin-ionescu/prezto.git ~/repos/sorin-ionescu/prezto
