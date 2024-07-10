@@ -1,6 +1,8 @@
 +++
 title = "C# Corner - fun with `yield` and extension methods"
 date = 2010-01-22T10:11:00-05:00
+categories = 'Play'
+tags = ['.NET']
 +++
 
 All .NET developers learn about `IEnumerable` and `IEnumerator `in their first day of development, whether they realize it or not. Every `foreach `statement written utilizes the `.GetEnumerator()` call to iterate over a collection of objects. The "For Each" concept is a really nice piece of syntactic sugar. However, one of its limitations is that it doesn't give you a counter to track which loop iteration you're on. If you want to do that, you have to keep track of it yourself in your own variable. Not a big deal really, just a fact of programming life. This manifests itself in two ways - you can write a `for;;` loop which has the counter built in and then you get the object you want by indexing the collection as shown here:

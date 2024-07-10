@@ -1,6 +1,8 @@
 +++
 title = 'jQuery to the rescue!'
 date = 2009-06-29T12:52:00-04:00
+categories = 'Tutorial'
+tags = ["jquery"]
 +++
 
 I had a thought today as I was posting - I like to link out from my blog, but it's really inconvenient for my readers to click on those links and have it open that link over top of the post they're reading. And I don't want to have to go back to my previous posts to update the links manually. Blogger should just handle it for me.

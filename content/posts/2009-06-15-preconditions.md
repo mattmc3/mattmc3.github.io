@@ -1,6 +1,8 @@
 +++
 title = 'Preconditions'
 date = 2009-06-15T23:52:00-04:00
+categories = 'Tech'
+tags = ['Google', '.NET']
 +++
 
 Google's been doing some interesting things lately. Some attract lots of attention, some very little. One that you may not have heard of is [Google Collections](http://google-collections.googlecode.com/). It's just a series of Java helper classes. At first it may seem like a non-event, and mostly for us .NET folks that's true. But I read [this post](http://publicobject.com/2007/09/coding-in-small-with-google-collections_08.html) about a year ago, and my interest was piqued by their [Preconditions](http://google-collections.googlecode.com/svn/trunk/javadoc/com/google/common/base/Preconditions.html) class. It's nothing significant - it just throws various argument exceptions if you don't pass "true" to its methods. But, after writing and using a .NET implementation of it for over a year now, I'm a huge fan of the concept. Formalizing "preconditions" does a few things:

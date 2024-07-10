@@ -1,6 +1,8 @@
 +++
 title = 'Better git shell aliases'
 date = 2024-07-03T09:00:00-04:00
+categories = 'tutorial'
+tags = 'git'
 +++
 
 # Better git shell aliases: using an external shell script

@@ -1,6 +1,8 @@
 +++
 title = 'Colemak - the slowest way I could write a blog post (for now!)'
 date = 2016-01-31T12:22:13-05:00
+categories = 'Typing'
+tags = ['Colemak']
 +++
 
 I am in the process of learning Colemak, an alternate keyboard layout. There are lots of great reasons to do something that seems so masochistic, but it would take too long to type them here (literally). I've gone from ~55 WPM, to about ~15-20, but my goal is ~80 COMFORTABLY by the time I'm done. The top of my right hand especially hurts after prolonged QWERTY use.

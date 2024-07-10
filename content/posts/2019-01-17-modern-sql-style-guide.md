@@ -1,6 +1,8 @@
 +++
 title = 'Modern SQL Style Guide'
 date = 2019-01-17T00:00:00-04:00
+categories = 'Guide'
+tags = ['SQL']
 +++
 
 # Modern SQL Style Guide - rev 1.0.1

@@ -1,6 +1,8 @@
 +++
 title = 'String or binary data would be truncated'
 date = 2011-04-25T16:12:00-04:00
+categories = 'Bugs'
+tags = ["SQL"]
 +++
 
 ![String or Binary](/assets/img/StringOrBinary.png)

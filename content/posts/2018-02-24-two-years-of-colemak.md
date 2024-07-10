@@ -1,6 +1,8 @@
 +++
 title = 'Two years of Colemak'
 date = 2018-02-24T18:03:00-05:00
+categories = 'Typing'
+tags = ['Colemak']
 +++
 
 ![Colemak](https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/KB_US-Colemak.svg/800px-KB_US-Colemak.svg.png)

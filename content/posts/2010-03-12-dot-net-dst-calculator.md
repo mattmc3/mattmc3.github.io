@@ -1,6 +1,8 @@
 +++
 title = '.NET DST Calculator'
 date = 2010-03-12T11:58:00-05:00
+categories = 'Tutorial'
+tags = ['.NET']
 +++
 
 I have a common .NET library written in C# that I use everywhere. I call it `mattmc3.Util`, and it contains helper methods (static classes or extension methods) that correspond to Microsoft's BCL. So, for example, I have a `DateTimeHelper` with static methods that corresponds to the `System.DateTime` class. The `DateTime` class is one of the most anemic in the .NET library, mainly because MS has to deal with international customers, so methods like `DateTime GetMemorialDay(int year)` are too regional and clutter the BCL, but are essential in the American business world.
