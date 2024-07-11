@@ -1,7 +1,16 @@
 baseURL = 'https://mattmc3.github.io/'
 languageCode = 'en-us'
 title = 'mattmc3.github.io'
-theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
+theme = ["github.com/tomowang/hugo-theme-tailwind"]
+# theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
+
+[params]
+  [params.header]
+    logo = "https://gravatar.com/avatar/bbfab639f621d1e7e1374038b5d2075c3ed259fa329f46e8476ef7e2124e5387"
+
+  [params.footer]
+    since = 2009
+    poweredby = true
 
 [permalinks]
   [permalinks.page]
@@ -12,4 +21,4 @@ theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
 [markup]
   [markup.highlight]
     # modus-vivendi, doom-one2, solarized-dark256, dracula, witchhazel, hrdark, github-dark
-    style = 'github-dark'
+    style = 'modus-vivendi'
