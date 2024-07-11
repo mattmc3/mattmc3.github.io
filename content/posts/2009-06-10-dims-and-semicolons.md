@@ -2,6 +2,7 @@
 title = 'Dims and Semicolons'
 date = 2009-06-10T10:28:00-04:00
 draft = true
+tags = ['.NET', 'Family', 'Tech']
 +++
 
 i'll admit it. my 4-year bachelor's degree in _computer science and systems analysis_ caused me to really like semicolon languages; and terse-ness; what i mean by that is obvious if you're a programmer; i prefer languages like c/c++, java, and c#; and even javascript; (though you can **cheat** with the semicolons with js, but i never do; true faithfulness); but c#, though i love thee, we can agree to disagree about curly brace placement. _i don't care what the other dads do, you braces don't get your own line just to open a code block_; **period.** er, semicolon;
