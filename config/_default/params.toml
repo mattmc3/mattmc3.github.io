@@ -1,0 +1,25 @@
+# SEO keywords and description for your site.
+subtitle = "mattmc3.github.io"
+keywords = "software development, shell scripting, data engineering"
+
+jsonLD = true
+
+[header]
+  logo = "https://gravatar.com/avatar/bbfab639f621d1e7e1374038b5d2075c3ed259fa329f46e8476ef7e2124e5387"
+
+[footer]
+  since = 2009
+  poweredby = true
+
+[social_media]
+  [[social_media.items]]
+    enabled = true
+    title = 'Github'
+    icon = 'brand-github'
+    link = 'https://github.com/mattmc3'
+
+  [[social_media.items]]
+    enabled = true
+    title = 'LinkedIn'
+    icon = 'brand-linkedin'
+    link = 'https://www.linkedin.com/in/selectstar'
