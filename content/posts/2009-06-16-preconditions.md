@@ -1,6 +1,6 @@
 +++
 title = 'Preconditions'
-date = 2009-06-15T23:52:00-04:00
+date = 2009-06-16T23:52:00-04:00
 categories = 'Tech'
 tags = ['Google', '.NET']
 +++
