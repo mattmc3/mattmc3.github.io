@@ -1,5 +1,9 @@
-+++ title = 'Using awk to colorize go output' date = 2023-05-23T00:00:00-04:00
-categories = 'Tutorial' tags = ['awk', 'go', 'shell'] +++
++++
+title = 'Using awk to colorize go output'
+date = 2023-05-23T00:00:00-04:00
+categories = 'Tutorial'
+tags = ['awk', 'go', 'shell']
++++
 
 From [my StackOverflow answer](https://unix.stackexchange.com/a/546920/84777) on the
 subject of colorizing Golang test run output:
