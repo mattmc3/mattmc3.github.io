@@ -5,7 +5,7 @@ categories = 'Tutorial'
 tags = ['awk', 'go', 'shell']
 +++
 
-From [my StackOverflow answer](https://unix.stackexchange.com/a/546920/84777) on the
+From [my StackOverflow answer](https://stackoverflow.com/a/76314505/83144) on the
 subject of colorizing Golang test run output:
 
 I like piping to a simple awk script to colorize output from other shell commands. That way, you can customize with whatever colors/patterns suit you. You want to colorize an output unique to your project? Go for it.
