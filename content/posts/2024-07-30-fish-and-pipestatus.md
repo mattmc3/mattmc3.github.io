@@ -2,7 +2,6 @@
 title = 'Fish and pipestatus'
 date = 2024-07-19T17:00:00-04:00
 categories = 'tutorial'
-draft = true
 tags = ['shell', 'Fish']
 +++
 
