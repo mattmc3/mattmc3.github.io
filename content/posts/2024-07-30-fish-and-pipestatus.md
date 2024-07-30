@@ -71,9 +71,10 @@ prior value.
 ## Piping commands
 
 When shell scripting, it is common to pipe commands. What we mean by piping commands is
-running a command and piping its output as the input to another command, and so on.
-Let's take a quick example in Fish where we print the URL to this blog post and pipe
-that to `string match` to pull out the slug name:
+running a command and sending its output as the input to another command, and so on.
+This is done with the pipe `|` character, hence the term. Let's take a quick example in
+Fish where we print the URL to this blog post and pipe that to `string match` to pull
+out the slug name:
 
 ```fish
 > echo "https://mattmc3.github.io/posts/2024/07/fish-and-pipestatus/" |
