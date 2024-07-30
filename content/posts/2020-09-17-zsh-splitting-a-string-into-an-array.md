@@ -1,6 +1,6 @@
 +++
 title = 'Zsh - splitting a string into an array'
-date = 20120-09-17T00:00:00-04:00
+date = 2020-09-17T00:00:00-04:00
 categories = 'Guide'
 tags = ['Zsh', 'Shell']
 +++
