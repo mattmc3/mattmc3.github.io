@@ -21,9 +21,9 @@ and 255 (well, really 0-254, with 255 signaling any out-of-range exit code above
 Canonically, an exit status of 0 means success, while any non-zero value indicates an
 error.
 
-_Note: Don't make the mistake of thinking 0 means FALSE and 1 means TRUE - that's not
-how exit statuses work, and is in fact the exact opposite of what they mean in this
-case._
+_Note: Don't make the mistake of equating '0' with FALSE / NOT SUCCESSFUL and '1' with
+TRUE / SUCCESS - that's not how exit statuses work, and is in fact the **exact
+opposite** of what they mean in this case._
 
 According to the [Linux Documentation
 Project](https://tldp.org/LDP/abs/html/exitcodes.html), certain exit codes are reserved
