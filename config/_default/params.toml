@@ -11,6 +11,9 @@ jsonLD = true
   since = 2009
   poweredby = true
 
+[sidebar]
+  limit = 100
+
 [social_media]
   [[social_media.items]]
     enabled = true

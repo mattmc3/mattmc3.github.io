@@ -15,6 +15,7 @@
 
 {{ range $taxonomy, $terms := site.Taxonomies }}
 {{ if $terms }}
-{{ partial "block/sidebar_section.html" (dict "Context" $terms "Taxonomy" $taxonomy "Limit" 100) }}
+{{- $limit := site.Params.sidebar.limit | default 10 -}}
+{{ partial "block/sidebar_section.html" (dict "Context" $terms "Taxonomy" $taxonomy "Limit" $limit) }}
 {{ end }}
 {{ end }}
