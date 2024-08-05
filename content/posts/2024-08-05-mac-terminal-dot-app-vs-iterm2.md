@@ -5,15 +5,15 @@ categories = 'Tech'
 tags = ["Terminal"]
 +++
 
-Every once in awhile I wonder if I'm using an unnecessary 3rd party app when what
-comes built-in on macOS would be sufficient. Terminal.app is one such app - I've used
-[iTerm2] for many years, but I don't use a bunch of its features and every time I open
-its settings it feels like overkill.
+Every once in a while I wonder if I'm using an unnecessary 3rd party app when a
+built-in on macOS would be sufficient. Terminal.app is one such app - I've used
+[iTerm2] for many years, but I don't use a bunch of its features, and every time I open
+iTerm2 settings it feels like overkill.
 
-I was on my spouse's Mac over the weekend helping her get some things set up, used
-Terminal.app and was pretty happy with it, so I decided to try it on my Mac. Nope. It
-still only supports 256 colors, which I had forgotten. This post is here simply to
-remind me next time I get the bug to use this macOS built-in - just don't.
+I was on my spouse's Mac over the weekend helping her get some things set up and used
+Terminal.app, and was pretty happy with it. So, I decided to try it on my Mac. _Nope._
+It still only supports 256 colors, which I had forgotten. This post is here simply to
+remind me next time I get the itch to use this macOS built-in.
 
 To replicate this test, run this:
 
