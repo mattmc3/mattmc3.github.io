@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = 'mattmc3.github.io'
 theme = ["github.com/tomowang/hugo-theme-tailwind"]
 # theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
+enableRobotsTXT = true
 
 [permalinks]
   [permalinks.page]
